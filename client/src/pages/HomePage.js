@@ -11,7 +11,6 @@ import axios from "axios";
 import Spinner from "./../components/Spinner";
 import moment from "moment";
 import Analytics from "../components/Analytics";
-// const backendUrl = process.env.REACT_APP_BACKEND_URL;
 import {getBackendUrl} from "../config"
 
 

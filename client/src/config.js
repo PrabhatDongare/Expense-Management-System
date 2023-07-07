@@ -1,4 +1,4 @@
 export const getBackendUrl = () => {
-    return "http://localhost:8080";
+    return "https://backend-k4bs.onrender.com";
   };
   
