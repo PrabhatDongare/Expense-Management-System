@@ -4,10 +4,13 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Spinner from "../components/Spinner";
 import "../styles/Loginpage.css";
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
+// const backendUrl = process.env.REACT_APP_BACKEND_URL;
+import {getBackendUrl} from "../config"
 
 
 const Login = () => {
+  const backendUrl = getBackendUrl();
+
   const img =
     "https://images.unsplash.com/photo-1593538312308-d4c29d8dc7f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80";
   const [loading, setLoading] = useState(false);
@@ -16,6 +19,7 @@ const Login = () => {
   const submitHandler = async (values) => {
     try {
       setLoading(true);
+      // const { data } = await axios.post(`${backendUrl}/api/v1/users/login`, values);
       const { data } = await axios.post(`${backendUrl}/api/v1/users/login`, values);
       setLoading(false);
       message.success("login success");

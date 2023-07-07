@@ -11,12 +11,16 @@ import axios from "axios";
 import Spinner from "./../components/Spinner";
 import moment from "moment";
 import Analytics from "../components/Analytics";
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
+// const backendUrl = process.env.REACT_APP_BACKEND_URL;
+import {getBackendUrl} from "../config"
 
 
 const { RangePicker } = DatePicker;
 
 const HomePage = () => {
+
+  const backendUrl = getBackendUrl();
+
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [allTransection, setAllTransection] = useState([]);
@@ -90,7 +94,7 @@ const HomePage = () => {
       }
     };
     getAllTransactions();
-  }, [frequency, selectedDate, type, setAllTransection]);
+  }, [frequency, selectedDate, type, setAllTransection, backendUrl]);
 
   //delete handler
   const handleDelete = async (record) => {

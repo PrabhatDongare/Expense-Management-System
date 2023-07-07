@@ -4,10 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Spinner from "../components/Spinner";
 import "../styles/RegisterPage.css";
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
+// const backendUrl = process.env.REACT_APP_BACKEND_URL;
+import {getBackendUrl} from "../config"
 
 
 const Register = () => {
+  const backendUrl = getBackendUrl();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   //from submit
